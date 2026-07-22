@@ -1,0 +1,94 @@
+# Entity: verify
+
+main: kit: entity: verify: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "credits_remaining"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "credits_used"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "email"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "message"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "result"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "upgrade_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "valid"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  name: "verify"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "user@example.com"
+                kind: "query"
+                name: "email"
+                orig: "email"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "vm_your_api_key"
+                kind: "query"
+                name: "key"
+                orig: "key"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/verify"
+          parts: [
+            "api"
+            "verify"
+          ]
+          select: {
+            exist: [
+              "email"
+              "key"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
