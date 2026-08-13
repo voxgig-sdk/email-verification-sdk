@@ -35,8 +35,8 @@ end
 
 
 function runner.env_override(m)
-  local live = runner.getenv("EMAILVERIFICATION_TEST_LIVE")
-  local override = runner.getenv("EMAILVERIFICATION_TEST_OVERRIDE")
+  local live = runner.getenv("EMAIL_VERIFICATION_TEST_LIVE")
+  local override = runner.getenv("EMAIL_VERIFICATION_TEST_OVERRIDE")
 
   if live == "TRUE" or override == "TRUE" then
     for key, _ in pairs(m) do
@@ -56,9 +56,9 @@ function runner.env_override(m)
     end
   end
 
-  local explain = runner.getenv("EMAILVERIFICATION_TEST_EXPLAIN")
+  local explain = runner.getenv("EMAIL_VERIFICATION_TEST_EXPLAIN")
   if explain ~= nil and explain ~= "" then
-    m["EMAILVERIFICATION_TEST_EXPLAIN"] = explain
+    m["EMAIL_VERIFICATION_TEST_EXPLAIN"] = explain
   end
 
   return m

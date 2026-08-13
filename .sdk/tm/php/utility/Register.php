@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ EmailVerificationUtility::setRegistrar(function (EmailVerificationUtility $u): v
     $u->prepare_params = [EmailVerificationPrepareParams::class, 'call'];
     $u->prepare_path = [EmailVerificationPreparePath::class, 'call'];
     $u->prepare_query = [EmailVerificationPrepareQuery::class, 'call'];
+    $u->graphql_body = [EmailVerificationGraphql::class, 'body'];
+    $u->graphql_errors = [EmailVerificationGraphql::class, 'errors'];
     $u->result_basic = [EmailVerificationResultBasic::class, 'call'];
     $u->result_body = [EmailVerificationResultBody::class, 'call'];
     $u->result_headers = [EmailVerificationResultHeaders::class, 'call'];

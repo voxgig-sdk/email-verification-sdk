@@ -72,11 +72,11 @@ function verify_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "EMAILVERIFICATION_TEST_VERIFY_ENTID" => [],
-        "EMAILVERIFICATION_TEST_LIVE" => "FALSE",
+        "EMAIL_VERIFICATION_TEST_VERIFY_ENTID" => [],
+        "EMAIL_VERIFICATION_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["EMAILVERIFICATION_TEST_LIVE"] === "TRUE";
+    $live = $env["EMAIL_VERIFICATION_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

@@ -26,8 +26,8 @@ import {
 describe('VerifyEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when EMAILVERIFICATION_TEST_LIVE=TRUE.
-  afterEach(liveDelay('EMAILVERIFICATION_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when EMAIL_VERIFICATION_TEST_LIVE=TRUE.
+  afterEach(liveDelay('EMAIL_VERIFICATION_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = EmailVerificationSDK.test()
@@ -62,7 +62,7 @@ describe('VerifyEntity', async () => {
     // LOAD
     const verify_ref01_ent = client.Verify()
     const verify_ref01_match_dt0: any = {}
-    const verify_ref01_data_dt0 = await verify_ref01_ent.load(verify_ref01_match_dt0)
+    const verify_ref01_data_dt0 = (await verify_ref01_ent.load(verify_ref01_match_dt0)).data()
     assert(null != verify_ref01_data_dt0)
 
 

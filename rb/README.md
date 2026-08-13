@@ -34,7 +34,7 @@ client = EmailVerificationSDK.new
 
 ```ruby
 begin
-  # load returns the bare Verify record (raises on error).
+  # load returns the ENTITY — call data_get for the Verify record (raises on error).
   verify = client.Verify.load()
   puts verify
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = EmailVerificationSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 verify = client.Verify.load()
 puts verify
 ```
@@ -276,7 +277,7 @@ Create an instance: `verify = client.Verify`
 #### Example: Load
 
 ```ruby
-# load returns the bare Verify record (raises on error).
+# load returns the ENTITY — call data_get for the Verify record (raises on error).
 verify = client.Verify.load()
 ```
 

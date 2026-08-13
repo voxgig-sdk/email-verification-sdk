@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ EmailVerificationUtility.registrar = ->(u) {
   u.prepare_params = EmailVerificationUtilities::PrepareParams
   u.prepare_path = EmailVerificationUtilities::PreparePath
   u.prepare_query = EmailVerificationUtilities::PrepareQuery
+  u.graphql_body = EmailVerificationUtilities::GraphqlBody
+  u.graphql_errors = EmailVerificationUtilities::GraphqlErrors
   u.result_basic = EmailVerificationUtilities::ResultBasic
   u.result_body = EmailVerificationUtilities::ResultBody
   u.result_headers = EmailVerificationUtilities::ResultHeaders

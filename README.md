@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = EmailVerificationSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = EmailVerificationSDK.test({
+  entity: {
+    verify: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const verify = await client.Verify().load()
-// verify is a bare Verify populated with mock data
+// verify is the Verify entity, populated with mock data
+// — call verify.data() for the record itself
 console.log(verify)
 ```
 
@@ -182,7 +191,7 @@ require_once 'emailverification_sdk.php';
 $client = new EmailVerificationSDK();
 
 
-// Load a specific verify (returns the bare record; throws on error)
+// Load a specific verify (returns the ENTITY; call data_get() for the record; throws on error)
 $verify = $client->Verify()->load();
 print_r($verify);
 ```
@@ -210,7 +219,7 @@ require_relative "EmailVerification_sdk"
 client = EmailVerificationSDK.new
 
 
-# Load a specific verify (returns the bare record; raises on error)
+# Load a specific verify (returns the ENTITY; call data_get for the record)
 verify = client.Verify.load()
 puts verify
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://verifymail.nanocorp.app](https://verifymail.nanocorp.app)
 

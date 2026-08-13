@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from emailverification_sdk.utility.voxgig_struct import voxgig_struct as vs
 from emailverification_sdk import EmailVerificationSDK
-from core import helpers
+from emailverification_sdk.core import helpers
 from test import runner
 
 
@@ -62,11 +62,11 @@ def _verify_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "EMAILVERIFICATION_TEST_VERIFY_ENTID": {},
-        "EMAILVERIFICATION_TEST_LIVE": "FALSE",
+        "EMAIL_VERIFICATION_TEST_VERIFY_ENTID": {},
+        "EMAIL_VERIFICATION_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("EMAILVERIFICATION_TEST_LIVE") == "TRUE"
+    live = env.get("EMAIL_VERIFICATION_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

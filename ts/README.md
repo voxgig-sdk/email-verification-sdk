@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = EmailVerificationSDK.test()
 
 const verify = await client.Verify().load()
-// verify is a bare entity populated with mock response data
+// verify is the entity, populated with mock response data
+// — call verify.data() for the record itself
 console.log(verify)
 ```
 

@@ -110,6 +110,7 @@ class EmailVerificationConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/verify',
                   'parts' => [

@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import EmailVerificationControl
-from core.error import EmailVerificationError
-from core.result import EmailVerificationResult
-from core.spec import EmailVerificationSpec
+from emailverification_sdk.config import make_config
+from emailverification_sdk.features import _make_feature
+from emailverification_sdk.core.control import EmailVerificationControl
+from emailverification_sdk.core.error import EmailVerificationError
+from emailverification_sdk.core.result import EmailVerificationResult
+from emailverification_sdk.core.spec import EmailVerificationSpec
 
 
 # True when this SDK was generated with the named feature.
