@@ -1,5 +1,8 @@
 -- EmailVerification SDK configuration
 
+-- Build a fresh, fully materialised config table. Every call rebuilds the
+-- whole structure, so prefer require("config_shared") unless you need a
+-- private copy you intend to mutate.
 local function make_config()
   return {
     main = {
@@ -25,53 +28,38 @@ local function make_config()
       ["verify"] = {
         ["fields"] = {
           {
-            ["active"] = true,
             ["name"] = "credits_remaining",
             ["req"] = true,
             ["type"] = "`$INTEGER`",
-            ["index$"] = 0,
           },
           {
-            ["active"] = true,
             ["name"] = "credits_used",
             ["req"] = true,
             ["type"] = "`$INTEGER`",
-            ["index$"] = 1,
           },
           {
-            ["active"] = true,
             ["name"] = "email",
             ["req"] = true,
             ["type"] = "`$STRING`",
-            ["index$"] = 2,
           },
           {
-            ["active"] = true,
             ["name"] = "message",
             ["req"] = true,
             ["type"] = "`$STRING`",
-            ["index$"] = 3,
           },
           {
-            ["active"] = true,
             ["name"] = "result",
             ["req"] = true,
             ["type"] = "`$STRING`",
-            ["index$"] = 4,
           },
           {
-            ["active"] = true,
             ["name"] = "upgrade_url",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 5,
           },
           {
-            ["active"] = true,
             ["name"] = "valid",
             ["req"] = true,
             ["type"] = "`$BOOLEAN`",
-            ["index$"] = 6,
           },
         },
         ["name"] = "verify",
@@ -81,11 +69,9 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {
                   ["query"] = {
                     {
-                      ["active"] = true,
                       ["example"] = "user@example.com",
                       ["kind"] = "query",
                       ["name"] = "email",
@@ -94,7 +80,6 @@ local function make_config()
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["example"] = "vm_your_api_key",
                       ["kind"] = "query",
                       ["name"] = "key",
@@ -121,10 +106,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "load",
           },
         },
         ["relations"] = {

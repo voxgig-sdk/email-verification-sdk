@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://verifymail.nanocorp.app',
+    base: "https://verifymail.nanocorp.app",
 
     headers: {
       "content-type": "application/json"
@@ -55,53 +55,38 @@ class Config {
     "verify": {
       "fields": [
         {
-          "active": true,
           "name": "credits_remaining",
           "req": true,
-          "type": "`$INTEGER`",
-          "index$": 0
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "credits_used",
           "req": true,
-          "type": "`$INTEGER`",
-          "index$": 1
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "email",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "message",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 3
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "result",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 4
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "upgrade_url",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 5
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "valid",
           "req": true,
-          "type": "`$BOOLEAN`",
-          "index$": 6
+          "type": "`$BOOLEAN`"
         }
       ],
       "name": "verify",
@@ -111,11 +96,9 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "example": "user@example.com",
                     "kind": "query",
                     "name": "email",
@@ -124,7 +107,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "vm_your_api_key",
                     "kind": "query",
                     "name": "key",
@@ -150,11 +132,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {

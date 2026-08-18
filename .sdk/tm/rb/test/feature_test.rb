@@ -15,7 +15,7 @@ require_relative "../EmailVerification_sdk"
 module EmailVerificationFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = EmailVerificationConfig.make_config["feature"]
+    f = EmailVerificationConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

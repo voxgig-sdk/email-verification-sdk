@@ -40,7 +40,7 @@ class EmailVerificationSDK
         $utility = new EmailVerificationUtility();
         $this->_utility = $utility;
 
-        $config = EmailVerificationConfig::make_config();
+        $config = EmailVerificationConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

@@ -1,6 +1,20 @@
 # EmailVerification SDK configuration
 
 module EmailVerificationConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -26,53 +40,38 @@ module EmailVerificationConfig
         "verify" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "credits_remaining",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "credits_used",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "email",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "message",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "result",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "upgrade_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "valid",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 6,
             },
           ],
           "name" => "verify",
@@ -82,11 +81,9 @@ module EmailVerificationConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "example" => "user@example.com",
                         "kind" => "query",
                         "name" => "email",
@@ -95,7 +92,6 @@ module EmailVerificationConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "vm_your_api_key",
                         "kind" => "query",
                         "name" => "key",
@@ -122,10 +118,8 @@ module EmailVerificationConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
