@@ -33,11 +33,13 @@ main: kit: entity: verify: {
     {
       name: "upgrade_url"
       req: false
+      short: "Included when credits are low or exhausted."
       type: "`$STRING`"
     }
     {
       name: "valid"
       req: true
+      short: "True when VerifyMail classifies the address as valid."
       type: "`$BOOLEAN`"
     }
   ]

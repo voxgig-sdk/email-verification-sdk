@@ -103,8 +103,8 @@ fmt.Println(verify.GetName()) // "verify"
 | `email` | `string` | Yes |  |
 | `message` | `string` | Yes |  |
 | `result` | `string` | Yes |  |
-| `upgrade_url` | `string` | No |  |
-| `valid` | `bool` | Yes |  |
+| `upgrade_url` | `string` | No | Included when credits are low or exhausted. |
+| `valid` | `bool` | Yes | True when VerifyMail classifies the address as valid. |
 
 ### Operations
 

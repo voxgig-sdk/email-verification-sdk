@@ -19,6 +19,9 @@ module EmailVerificationConfig
     {
       "main" => {
         "name" => "EmailVerification",
+        "slug" => "email-verification",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -66,11 +69,13 @@ module EmailVerificationConfig
             },
             {
               "name" => "upgrade_url",
+              "short" => "Included when credits are low or exhausted.",
               "type" => "`$STRING`",
             },
             {
               "name" => "valid",
               "req" => true,
+              "short" => "True when VerifyMail classifies the address as valid.",
               "type" => "`$BOOLEAN`",
             },
           ],

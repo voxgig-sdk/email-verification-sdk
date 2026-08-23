@@ -246,8 +246,8 @@ On error, `ok` is `False` and `err` contains the error value.
 | `email` |  |
 | `message` |  |
 | `result` |  |
-| `upgrade_url` |  |
-| `valid` |  |
+| `upgrade_url` | Included when credits are low or exhausted. |
+| `valid` | True when VerifyMail classifies the address as valid. |
 
 Operations: Load.
 
@@ -277,8 +277,8 @@ Create an instance: `verify = client.Verify()`
 | `email` | `str` |  |
 | `message` | `str` |  |
 | `result` | `str` |  |
-| `upgrade_url` | `str` |  |
-| `valid` | `bool` |  |
+| `upgrade_url` | `str` | Included when credits are low or exhausted. |
+| `valid` | `bool` | True when VerifyMail classifies the address as valid. |
 
 #### Example: Load
 

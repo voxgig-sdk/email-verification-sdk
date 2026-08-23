@@ -6,7 +6,7 @@ The Golang SDK for the EmailVerification API — an entity-oriented client using
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Verify(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -263,8 +263,8 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"email"` |  |
 | `"message"` |  |
 | `"result"` |  |
-| `"upgrade_url"` |  |
-| `"valid"` |  |
+| `"upgrade_url"` | Included when credits are low or exhausted. |
+| `"valid"` | True when VerifyMail classifies the address as valid. |
 
 Operations: Load.
 
@@ -294,8 +294,8 @@ Create an instance: `verify := client.Verify(nil)`
 | `email` | `string` |  |
 | `message` | `string` |  |
 | `result` | `string` |  |
-| `upgrade_url` | `string` |  |
-| `valid` | `bool` |  |
+| `upgrade_url` | `string` | Included when credits are low or exhausted. |
+| `valid` | `bool` | True when VerifyMail classifies the address as valid. |
 
 #### Example: Load
 

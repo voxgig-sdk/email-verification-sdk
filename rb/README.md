@@ -240,8 +240,8 @@ returns a result `Hash` with these keys:
 | `email` |  |
 | `message` |  |
 | `result` |  |
-| `upgrade_url` |  |
-| `valid` |  |
+| `upgrade_url` | Included when credits are low or exhausted. |
+| `valid` | True when VerifyMail classifies the address as valid. |
 
 Operations: Load.
 
@@ -271,8 +271,8 @@ Create an instance: `verify = client.Verify`
 | `email` | `String` |  |
 | `message` | `String` |  |
 | `result` | `String` |  |
-| `upgrade_url` | `String` |  |
-| `valid` | `Boolean` |  |
+| `upgrade_url` | `String` | Included when credits are low or exhausted. |
+| `valid` | `Boolean` | True when VerifyMail classifies the address as valid. |
 
 #### Example: Load
 

@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'EmailVerification',
+        slug: "email-verification",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -81,11 +92,13 @@ class Config {
         },
         {
           "name": "upgrade_url",
+          "short": "Included when credits are low or exhausted.",
           "type": "`$STRING`"
         },
         {
           "name": "valid",
           "req": true,
+          "short": "True when VerifyMail classifies the address as valid.",
           "type": "`$BOOLEAN`"
         }
       ],

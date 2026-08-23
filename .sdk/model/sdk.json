@@ -66,12 +66,14 @@
               "active": true,
               "name": "upgrade_url",
               "req": false,
+              "short": "Included when credits are low or exhausted.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "valid",
               "req": true,
+              "short": "True when VerifyMail classifies the address as valid.",
               "type": "`$BOOLEAN`"
             }
           ],

@@ -250,8 +250,8 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `email` |  |
 | `message` |  |
 | `result` |  |
-| `upgrade_url` |  |
-| `valid` |  |
+| `upgrade_url` | Included when credits are low or exhausted. |
+| `valid` | True when VerifyMail classifies the address as valid. |
 
 Operations: Load.
 
@@ -281,8 +281,8 @@ Create an instance: `$verify = $client->Verify();`
 | `email` | `string` |  |
 | `message` | `string` |  |
 | `result` | `string` |  |
-| `upgrade_url` | `string` |  |
-| `valid` | `bool` |  |
+| `upgrade_url` | `string` | Included when credits are low or exhausted. |
+| `valid` | `bool` | True when VerifyMail classifies the address as valid. |
 
 #### Example: Load
 

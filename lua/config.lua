@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "EmailVerification",
+      slug = "email-verification",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -54,11 +57,13 @@ local function make_config()
           },
           {
             ["name"] = "upgrade_url",
+            ["short"] = "Included when credits are low or exhausted.",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "valid",
             ["req"] = true,
+            ["short"] = "True when VerifyMail classifies the address as valid.",
             ["type"] = "`$BOOLEAN`",
           },
         },

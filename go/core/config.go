@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "EmailVerification",
+			"slug": "email-verification",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -58,11 +61,13 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "upgrade_url",
+						"short": "Included when credits are low or exhausted.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "valid",
 						"req": true,
+						"short": "True when VerifyMail classifies the address as valid.",
 						"type": "`$BOOLEAN`",
 					},
 				},

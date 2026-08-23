@@ -92,8 +92,8 @@ verify = client.Verify()
 | `email` | `str` | Yes |  |
 | `message` | `str` | Yes |  |
 | `result` | `str` | Yes |  |
-| `upgrade_url` | `str` | No |  |
-| `valid` | `bool` | Yes |  |
+| `upgrade_url` | `str` | No | Included when credits are low or exhausted. |
+| `valid` | `bool` | Yes | True when VerifyMail classifies the address as valid. |
 
 ### Operations
 

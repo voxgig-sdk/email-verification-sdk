@@ -98,8 +98,8 @@ verify = client.Verify
 | `email` | `String` | Yes |  |
 | `message` | `String` | Yes |  |
 | `result` | `String` | Yes |  |
-| `upgrade_url` | `String` | No |  |
-| `valid` | `Boolean` | Yes |  |
+| `upgrade_url` | `String` | No | Included when credits are low or exhausted. |
+| `valid` | `Boolean` | Yes | True when VerifyMail classifies the address as valid. |
 
 ### Operations
 

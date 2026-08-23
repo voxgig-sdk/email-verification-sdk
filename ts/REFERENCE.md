@@ -121,8 +121,8 @@ const verify = client.Verify()
 | `email` | `string` | Yes |  |
 | `message` | `string` | Yes |  |
 | `result` | `string` | Yes |  |
-| `upgrade_url` | `string` | No |  |
-| `valid` | `boolean` | Yes |  |
+| `upgrade_url` | `string` | No | Included when credits are low or exhausted. |
+| `valid` | `boolean` | Yes | True when VerifyMail classifies the address as valid. |
 
 ### Operations
 

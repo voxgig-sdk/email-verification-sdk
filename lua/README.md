@@ -230,8 +230,8 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `email` |  |
 | `message` |  |
 | `result` |  |
-| `upgrade_url` |  |
-| `valid` |  |
+| `upgrade_url` | Included when credits are low or exhausted. |
+| `valid` | True when VerifyMail classifies the address as valid. |
 
 Operations: Load.
 
@@ -261,8 +261,8 @@ Create an instance: `local verify = client:Verify(nil)`
 | `email` | `string` |  |
 | `message` | `string` |  |
 | `result` | `string` |  |
-| `upgrade_url` | `string` |  |
-| `valid` | `boolean` |  |
+| `upgrade_url` | `string` | Included when credits are low or exhausted. |
+| `valid` | `boolean` | True when VerifyMail classifies the address as valid. |
 
 #### Example: Load
 
