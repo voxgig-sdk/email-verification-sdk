@@ -28,6 +28,7 @@ module EmailVerificationConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
