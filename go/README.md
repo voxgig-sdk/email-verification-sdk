@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single verify — the value is the loaded record.
-    verify, err := client.Verify(nil).Load(nil, nil)
+    verify, err := client.Verify(nil).Load(map[string]any{"email": "example_email", "key": "example_key"}, nil)
     if err != nil {
         panic(err)
     }
@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-verify, err := client.Verify(nil).Load(nil, nil)
+verify, err := client.Verify(nil).Load(map[string]any{"email": "example", "key": "example"}, nil)
 if err != nil {
     // handle err
     return
@@ -136,7 +136,7 @@ Create a mock client for unit testing — no server required:
 client := sdk.Test()
 
 verify, err := client.Verify(nil).Load(
-    nil, nil,
+    map[string]any{"email": "example", "key": "example"}, nil,
 )
 if err != nil {
     panic(err)
@@ -300,12 +300,35 @@ Create an instance: `verify := client.Verify(nil)`
 #### Example: Load
 
 ```go
-verify, err := client.Verify(nil).Load(nil, nil)
+verify, err := client.Verify(nil).Load(map[string]any{"email": "email", "key": "key"}, nil)
 if err != nil {
     panic(err)
 }
 fmt.Println(verify) // the loaded record
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -382,7 +405,7 @@ stores the returned data and match criteria internally.
 
 ```go
 verify := client.Verify(nil)
-verify.Load(nil, nil)
+verify.Load(map[string]any{"email": "example", "key": "example"}, nil)
 
 // verify.Data() now returns the verify data from the last load
 // verify.Match() returns the last match criteria

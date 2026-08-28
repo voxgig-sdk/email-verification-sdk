@@ -43,34 +43,14 @@ Verify = Struct.new(
 
 # Request payload for Verify#load.
 #
-# @!attribute [rw] credits_remaining
-#   @return [Integer, nil]
-#
-# @!attribute [rw] credits_used
-#   @return [Integer, nil]
-#
 # @!attribute [rw] email
-#   @return [String, nil]
+#   @return [String]
 #
-# @!attribute [rw] message
-#   @return [String, nil]
-#
-# @!attribute [rw] result
-#   @return [String, nil]
-#
-# @!attribute [rw] upgrade_url
-#   @return [String, nil]
-#
-# @!attribute [rw] valid
-#   @return [Boolean, nil]
+# @!attribute [rw] key
+#   @return [String]
 VerifyLoadMatch = Struct.new(
-  :credits_remaining,
-  :credits_used,
   :email,
-  :message,
-  :result,
-  :upgrade_url,
-  :valid,
+  :key,
   keyword_init: true
 )
 

@@ -36,7 +36,7 @@ $client = new EmailVerificationSDK();
 ```php
 try {
     // load() returns the ENTITY — call data_get() for the Verify record (throws on error).
-    $verify = $client->Verify()->load();
+    $verify = $client->Verify()->load(["email" => "example_email", "key" => "example_key"]);
     print_r($verify);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $verify = $client->Verify()->load();
+    $verify = $client->Verify()->load(["email" => "example", "key" => "example"]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -125,7 +125,7 @@ $client = EmailVerificationSDK::test();
 
 // Entity ops return the ENTITY (throws on error);
 // call data_get() for the mock record.
-$verify = $client->Verify()->load();
+$verify = $client->Verify()->load(["email" => "example", "key" => "example"]);
 print_r($verify);
 ```
 
@@ -288,8 +288,31 @@ Create an instance: `$verify = $client->Verify();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Verify record (throws on error).
-$verify = $client->Verify()->load();
+$verify = $client->Verify()->load(["email" => "email", "key" => "key"]);
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -369,7 +392,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $verify = $client->Verify();
-$verify->load();
+$verify->load(["email" => "example", "key" => "example"]);
 
 // $verify->data_get() now returns the verify data from the last load
 // $verify->match_get() returns the last match criteria

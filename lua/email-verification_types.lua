@@ -16,13 +16,8 @@
 ---@field valid boolean
 
 ---@class VerifyLoadMatch
----@field credits_remaining? number
----@field credits_used? number
----@field email? string
----@field message? string
----@field result? string
----@field upgrade_url? string
----@field valid? boolean
+---@field email string
+---@field key string
 
 local M = {}
 

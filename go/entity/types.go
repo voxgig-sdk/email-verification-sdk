@@ -25,13 +25,8 @@ type Verify struct {
 
 // VerifyLoadMatch is the typed request payload for Verify.LoadTyped.
 type VerifyLoadMatch struct {
-	CreditsRemaining *int `json:"credits_remaining,omitempty"`
-	CreditsUsed *int `json:"credits_used,omitempty"`
-	Email *string `json:"email,omitempty"`
-	Message *string `json:"message,omitempty"`
-	Result *string `json:"result,omitempty"`
-	UpgradeUrl *string `json:"upgrade_url,omitempty"`
-	Valid *bool `json:"valid,omitempty"`
+	Email string `json:"email"`
+	Key string `json:"key"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

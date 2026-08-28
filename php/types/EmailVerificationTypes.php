@@ -27,12 +27,7 @@ class Verify
 /** Request payload for Verify#load. */
 class VerifyLoadMatch
 {
-    public ?int $credits_remaining = null;
-    public ?int $credits_used = null;
-    public ?string $email = null;
-    public ?string $message = null;
-    public ?string $result = null;
-    public ?string $upgrade_url = null;
-    public ?bool $valid = null;
+    public string $email;
+    public string $key;
 }
 

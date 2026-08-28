@@ -29,11 +29,6 @@ class Verify(VerifyRequired, total=False):
     upgrade_url: str
 
 
-class VerifyLoadMatch(TypedDict, total=False):
-    credits_remaining: int
-    credits_used: int
+class VerifyLoadMatch(TypedDict):
     email: str
-    message: str
-    result: str
-    upgrade_url: str
-    valid: bool
+    key: str

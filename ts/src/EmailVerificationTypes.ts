@@ -16,12 +16,7 @@ export interface Verify {
 }
 
 export interface VerifyLoadMatch {
-  credits_remaining?: number
-  credits_used?: number
-  email?: string
-  message?: string
-  result?: string
-  upgrade_url?: string
-  valid?: boolean
+  email: string
+  key: string
 }
 
