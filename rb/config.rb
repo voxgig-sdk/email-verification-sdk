@@ -54,6 +54,7 @@ module EmailVerificationConfig
               "type" => "`$INTEGER`",
             },
             {
+              "format" => "email",
               "name" => "email",
               "req" => true,
               "type" => "`$STRING`",
@@ -69,6 +70,7 @@ module EmailVerificationConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "uri",
               "name" => "upgrade_url",
               "short" => "Included when credits are low or exhausted.",
               "type" => "`$STRING`",
@@ -110,9 +112,13 @@ module EmailVerificationConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/verify",
-                  "parts" => [
-                    "api",
-                    "verify",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "verify",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -124,6 +130,10 @@ module EmailVerificationConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "verify",
+                  ],
                 },
               ],
             },

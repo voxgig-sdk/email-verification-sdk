@@ -68,6 +68,7 @@ class EmailVerificationConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'email',
               'name' => 'email',
               'req' => true,
               'type' => '`$STRING`',
@@ -83,6 +84,7 @@ class EmailVerificationConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'upgrade_url',
               'short' => 'Included when credits are low or exhausted.',
               'type' => '`$STRING`',
@@ -124,9 +126,13 @@ class EmailVerificationConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/verify',
-                  'parts' => [
-                    'api',
-                    'verify',
+                  'segments' => [
+                    [
+                      'lit' => 'api',
+                    ],
+                    [
+                      'lit' => 'verify',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -137,6 +143,10 @@ class EmailVerificationConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'api',
+                    'verify',
                   ],
                 ],
               ],

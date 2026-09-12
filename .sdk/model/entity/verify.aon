@@ -16,6 +16,7 @@ main: kit: entity: verify: {
       type: "`$INTEGER`"
     }
     {
+      format: "email"
       name: "email"
       req: true
       type: "`$STRING`"
@@ -31,6 +32,7 @@ main: kit: entity: verify: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "upgrade_url"
       req: false
       short: "Included when credits are low or exhausted."
@@ -72,9 +74,13 @@ main: kit: entity: verify: {
           }
           method: "GET"
           orig: "/api/verify"
-          parts: [
-            "api"
-            "verify"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "verify"
+            }
           ]
           select: {
             exist: [

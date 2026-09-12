@@ -42,6 +42,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "email",
             ["name"] = "email",
             ["req"] = true,
             ["type"] = "`$STRING`",
@@ -57,6 +58,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "upgrade_url",
             ["short"] = "Included when credits are low or exhausted.",
             ["type"] = "`$STRING`",
@@ -98,9 +100,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/verify",
-                ["parts"] = {
-                  "api",
-                  "verify",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "verify",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -111,6 +117,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "api",
+                  "verify",
                 },
               },
             },
