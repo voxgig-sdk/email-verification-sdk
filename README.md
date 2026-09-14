@@ -105,7 +105,7 @@ local result, err = client:Verify():load({ email = "example", key = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-verification-sdk/releases) |
+| TypeScript | `@voxgig-sdk/email-verification-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-verification-sdk/releases) |
 | Python | `voxgig-sdk-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-verification-sdk/releases) |
 | PHP | `voxgig-sdk/email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-verification-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/email-verification-sdk/go` | `go get github.com/voxgig-sdk/email-verification-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Verify():load({ email = "example", key = "example" })
 ### TypeScript
 
 ```ts
-import { EmailVerificationSDK } from '@voxgig-sdk/email-verification'
+import { EmailVerificationSDK } from '@voxgig-sdk/email-verification-sdk'
 
 const client = new EmailVerificationSDK()
 
