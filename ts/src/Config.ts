@@ -127,9 +127,9 @@ class Config {
 
     entity: {
       
-      verify: {
-      },
-
+        verify: {
+        },
+  
     }
   }
 
